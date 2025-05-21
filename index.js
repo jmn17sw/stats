@@ -3,8 +3,8 @@
  * @returns {number} the length of the array
  */
 function getLength(numbers) {
-  const length = [a, b, c, e, f, g];
-  return length.length;
+    return numbers.length;
+  
 }
 
 
@@ -13,8 +13,16 @@ function getLength(numbers) {
  * @returns {number} the sum of the numbers
  */
 function getSum(numbers) {
-  const sum = [a, b, c, d, e, f, g];
-  return  a + b + c + d + e + f + g;
+  //keep track of the tetal
+  let total = 0;
+  //go through each number
+  for(let i = 0; i < numbers.length; i++) {
+    let currentNumber = numbers[i];
+    total = total + currentNumber;
+  }
+  //add the number to the total
+  //return the toal
+  return total;
 }
 
 /**
@@ -22,8 +30,12 @@ function getSum(numbers) {
  * @returns {number} the mean of the numbers
  */
 function getMean(numbers) {
-  const mean = [a, b, c, d, e, f, g];
-  return mean / 6;
+ //add the numbers the together
+ const total = getSum(numbers);
+ // divide by the number of numbers
+ const average = total/getLength(numbers);
+ // return the average
+ return average;
 }
 
 /**
@@ -31,8 +43,25 @@ function getMean(numbers) {
  * @returns {number} the smallest of the numbers
  */
 function getMin(numbers) {
-  const min = [a, b, c, d, e, f, g];
-  return min = Math.min(...arr);
+  //identify the smallest number
+  let smallestNumber = numbers[0];
+  //scan the numbers
+  for(let i = 0; i < numbers.length; i++) {
+    console.log(numbers[i]);
+    let currentNumber = numbers[i];
+  
+  //if the current number is smaller than the smallest number
+      if(currentNumber < smallestNumber) {
+      console.log(currentNumber);
+      smallestNumber = currentNumber;
+   }
+  }
+  //keep track of the smallest number
+
+  return smallestNumber;
+  //return the smallest number
+
+
 }
 
 /**
@@ -40,8 +69,19 @@ function getMin(numbers) {
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  const max = [a, b, c, d, e, f, g];
-  return max = Math.max(...arr);
+ //identify the largest number
+ let largestNumber = numbers[0];
+ //scan the array
+ for(let i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]);
+  let currentNumber = numbers[i];
+  //replace current largest number with previous
+  if(currentNumber > largestNumber) {
+    console.log(currentNumber);
+    largestNumber = currentNumber;
+      }
+    }
+  return largestNumber;
 }
 
 /**
@@ -49,18 +89,26 @@ function getMax(numbers) {
  * @returns {number} the range of the numbers (max - min)
  */
 function getRange(numbers) {
-  const range = [a, b, c, d, e, f, g];
-  return range = Math.min(...arr) && Math.max(...arr);
+//create a range loop
+return getMax(numbers)-getMin(numbers);
+
 }
+// return the answer
+
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
-  const evens = [a, b, c, d, e, f, g];
-  let result = evens.filter((num) => num % 2 === 0);
-  return result;
+  //find even numbers
+  let even = [];
+  for(let i = 0; i < numbers.length; i++) {
+    if(numbers[i] % 2 == 0)
+      even.push(numbers[i])
+  }
+  //return the evens
+  return even; 
 }
 
 /**
@@ -68,9 +116,12 @@ function getEvens(numbers) {
  * @returns {number[]} the odd numbers in the array
  */
 function getOdds(numbers) {
-  const odds = [a, b, c, d, e, f, g];
-  let result = odds.filter((num) => num % 2 === 0);
-  return result;
+  let odd = [];
+  for(let i = 0; i < numbers.length; i++) {
+    if(numbers[i] % 2 != 0)
+      odd.push(numbers[i])
+  }
+  return odd;
 }
 
 // === READ BUT DO NOT EDIT THE CODE BELOW ===
